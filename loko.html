@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panan Airlines — Avgangsstatus PA 453 (OSL → ZKA)</title>
+  <style>
+    :root{
+      --bg:#071322;
+      --card:#0f1724;
+      --muted:#9fb0b8;
+      --accent:#1fa67a;
+      --accent-2:#f7b733;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxw:980px;
+      --sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(800px 300px at 10% 6%, rgba(31,166,122,0.03), transparent 10%),
+        linear-gradient(180deg,#04101a 0%, #06121a 100%);
+      color:#e6eef1;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:10px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* simple Panan Airlines logo (SVG) */
+    .logo{
+      width:72px;height:72px;border-radius:10px;background:
+      linear-gradient(180deg,#072017,#0b2b1e);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .title h1{
+      margin:0;font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .title p{margin:0;color:var(--muted);font-size:13px;margin-top:4px}
+
+    .status-badge{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#042018;padding:8px 12px;border-radius:999px;font-weight:800;
+      box-shadow: 0 6px 12px rgba(31,166,122,0.08);
+    }
+
+    main{
+      margin-top:8px;
+    }
+
+    .panel{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:18px;
+      align-items:start;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .flight{
+      display:flex;gap:16px;align-items:center;
+    }
+
+    .flight .ident{
+      min-width:110px;
+      background:linear-gradient(90deg,#08172a,#0f243b);
+      padding:14px;border-radius:10px;text-align:center;
+    }
+    .flight .ident h2{margin:0;font-size:20px;color:var(--accent)}
+    .flight .ident p{margin:6px 0 0 0;color:var(--muted);font-size:12px}
+
+    .flight .meta h3{margin:0;font-size:18px}
+    .flight .meta p{margin:6px 0;color:var(--muted)}
+
+    table{
+      width:100%;border-collapse:collapse;margin-top:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:8px;overflow:hidden;
+    }
+
+    th,td{
+      padding:12px 14px;text-align:left;border-bottom:1px dashed rgba(255,255,255,0.03);
+      font-size:15px;
+    }
+    th{background:rgba(255,255,255,0.02);color:var(--muted);font-weight:700}
+    td.status{font-weight:700;color:#ffd166}
+
+    .note{color:var(--muted);font-size:13px;margin-top:10px}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* right column */
+    .side{
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .weather{
+      display:flex;align-items:center;gap:12px;
+    }
+    .weather .icon{
+      width:64px;height:64px;border-radius:8px;background:linear-gradient(180deg,#17344a,#0f2437);display:flex;align-items:center;justify-content:center;font-size:22px;
+    }
+    .reveal {
+      background:linear-gradient(90deg,#072017,#122a24);
+      padding:12px;border-radius:8px;color:var(--muted);
+    }
+
+    .countdown{font-weight:800;color:#fff;font-size:18px;margin-top:6px}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:880px){
+      .panel{grid-template-columns:1fr}
+      .brand .title{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main" aria-label="Panan Airlines avgangsinformasjon">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- inline SVG logo -->
+          <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#1fa67a"/>
+                <stop offset="1" stop-color="#f7b733"/>
+              </linearGradient>
+            </defs>
+            <rect width="64" height="64" rx="10" fill="#072017"/>
+            <path d="M10 44 C22 28, 42 28, 54 12 L48 12 C36 26, 16 26, 6 42 Z" fill="url(#g1)"/>
+            <circle cx="40" cy="40" r="10" fill="#f7b733" opacity="0.9"/>
+          </svg>
+        </div>
+
+        <div class="title">
+          <h1>Panan Airlines</h1>
+          <p>Offisiell rute- og avgangsinformasjon — Zakra International (ZKA)</p>
+        </div>
+      </div>
+
+      <div class="status-badge" aria-live="polite">Aktuell oppdatering: Avgangsinfo for i dag</div>
+    </header>
+
+    <main>
+      <div class="panel">
+        <div class="card">
+          <div class="flight" role="region" aria-label="Flyinformasjon">
+            <div class="ident" aria-hidden="false">
+              <h2>PA 453</h2>
+              <p>Oslo (OSL) → Zakra (ZKA)</p>
+            </div>
+
+            <div class="meta">
+              <h3>Avgang: 21:20 (i dag)</h3>
+              <p class="small">Oppdatert: <span id="updatedTime">18:25</span> CET</p>
+              <p class="small">Avgang fra: Oslo Gardermoen — Internasjonal</p>
+            </div>
+          </div>
+
+          <table role="table" aria-label="Avgangstabell">
+            <thead>
+              <tr>
+                <th>Tid</th>
+                <th>Flyselskap</th>
+                <th>Flight</th>
+                <th>Til</th>
+                <th>Terminal</th>
+                <th>Gate</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>21:20</td>
+                <td>Panan Airlines</td>
+                <td><strong>PA 453</strong></td>
+                <td><strong>Zakra (ZKA)</strong></td>
+                <td>T1 Utland</td>
+                <td id="gateCell" aria-live="polite">—</td>
+                <td class="status" id="statusCell">Innsjekk åpner 18:40</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="note">Merknad: Reisende til Zakra må gjennom passkontroll (utenfor EØS). Gateinformasjon publiseres kl. <strong>19:20</strong>.</p>
+
+          <div style="margin-top:12px" class="small">
+            <strong>Tips:</strong> Møt opp tidlig — anbefalt senest 60 minuter før avgang. Sjekk gyldig pass og eventuelle innreiserestriksjoner.
+          </div>
+
+        </div>
+
+        <aside class="side">
+          <div class="card weather" role="region" aria-label="Vær på destinasjon">
+            <div class="icon" aria-hidden="true">🌤</div>
+            <div>
+              <div style="font-weight:800">Zakra (ZKA)</div>
+              <div class="small" id="weatherText">17 °C • Lett bris</div>
+            </div>
+          </div>
+
+          <div class="card reveal" role="region" aria-live="polite">
+            <div><strong>Gateinformasjon</strong></div>
+            <div id="gateReveal">
+              <div class="small">Gate publiseres kl. <strong>19:20</strong>.</div>
+              <div class="countdown" id="countdown">Tid til publisering: —</div>
+            </div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">
+              Når gate blir publisert vil informasjonen oppdatere seg automatisk i dette vinduet.
+            </div>
+          </div>
+
+          <div class="card small">
+            <div style="font-weight:700;margin-bottom:8px">Viktig info</div>
+            <ul style="color:var(--muted);line-height:1.6;margin:0;padding-left:18px">
+              <li>Passkontroll for utenlandsreiser.</li>
+              <li>Håndbagasje: Maks 8 kg / 55 x 40 x 23 cm.</li>
+              <li>Vær obs på eventuelle forsinkelser — følg varsler fra flyselskapet.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        <div>© 2025 Panan Airlines — Zakra International · All rights reserved</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      // Show gate at local 19:20 (today). If current time >= 19:20 show gate F11.
+      // Otherwise show countdown. Uses client's local clock.
+      const gateCell = document.getElementById('gateCell');
+      const statusCell = document.getElementById('statusCell');
+      const countdownEl = document.getElementById('countdown');
+
+      function pad(n){ return n < 10 ? '0'+n : n; }
+
+      function getTodayRevealDate(){
+        const now = new Date();
+        // set today at 19:20 local time
+        const d = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 20, 0, 0);
+        return d;
+      }
+
+      function updateClock(){
+        const now = new Date();
+        const reveal = getTodayRevealDate();
+        if(now >= reveal){
+          // reveal gate
+          gateCell.textContent = 'F11';
+          statusCell.textContent = 'Gate publisert • Boarding kl. 20:40';
+          countdownEl.textContent = 'Gate publisert: F11';
+        } else {
+          const diff = Math.floor((reveal - now) / 1000);
+          const hh = Math.floor(diff/3600);
+          const mm = Math.floor((diff%3600)/60);
+          const ss = diff % 60;
+          countdownEl.textContent = pad(hh)+':'+pad(mm)+':'+pad(ss);
+          // keep gate as dash until reveal
+          gateCell.textContent = '—';
+        }
+      }
+
+      // initial update
+      updateClock();
+      // update every second
+      const timer = setInterval(updateClock, 1000);
+
+      // accessibility: update "updated time" to show client local time in CET label
+      const updated = document.getElementById('updatedTime');
+      const now = new Date();
+      const hh = pad(now.getHours());
+      const mm = pad(now.getMinutes());
+      updated.textContent = hh+':'+mm;
+    })();
+  </script>
+</body>
+</html>
